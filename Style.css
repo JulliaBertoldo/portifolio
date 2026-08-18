@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    --bg-start: #e8dcff;
+    --bg-end: #f8f5ff;
+    --text: #433656;
+    --text-muted: #655b73;
+    --text-soft: #6b5d79;
+    --accent: #8b76a8;
+    --accent-dark: #6f5d87;
+    --accent-strong: #8164b3;
+    --accent-strong-dark: #684d98;
+    --accent-soft: #f3effb;
+    --border: #ece6f7;
+    --border-strong: #e7dff8;
+    --surface: #ffffff;
+    --surface-soft: #faf8ff;
+    --shadow: rgba(0, 0, 0, 0.15);
+    --shadow-soft: rgba(0, 0, 0, 0.08);
+    --shadow-lilac: rgba(120, 90, 180, 0.12);
+}
+
+/* ==========================
+   BASE E RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at top left, var(--bg-start), var(--bg-end) 55%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+/* ==========================
+   TIPOGRAFIA E COMPONENTES COMUNS
+========================== */
+
+.tag {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+}
+
+h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 7rem;
+    font-weight: 500;
+    line-height: 0.85;
+    margin-bottom: 25px;
+}
+
+.titulo {
+    margin-bottom: 50px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 4rem;
+}
+
+.voltar {
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    background: var(--surface);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.voltar:hover {
+    transform: translateX(-5px);
+}
+
+.contador {
+    margin-bottom: 60px;
+    color: var(--accent);
+}
+
+.descricao {
+    margin-bottom: 40px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skills span {
+    padding: 14px 22px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 0 16px;
+}
+
+.logo-topo {
+    margin-bottom: 24px;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+.logo-topo img {
+    display: block;
+    width: 140px;
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(163, 119, 255, 0.35)) drop-shadow(0 0 20px rgba(163, 119, 255, 0.25));
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo-topo img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(163, 119, 255, 0.7)) drop-shadow(0 0 35px rgba(163, 119, 255, 0.45));
+}
+
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2rem, 5vw, 6rem);
+    min-height: 100vh;
+    padding: 2rem 0 3rem;
+}
+
+.hero > .foto {
+    order: 1;
+}
+
+.hero > .info {
+    order: 2;
+}
+
+.info {
+    max-width: 500px;
+}
+
+.menu {
+    display: grid;
+    gap: 15px;
+}
+
+.menu a {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.menu a:hover {
+    transform: translateY(-6px);
+    border-color: #9d84b7;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.foto img {
+    width: 420px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 35px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================
+   P�GINAS INTERNAS
+========================== */
+
+.pagina {
+    padding: 100px 0;
+}
+
+/* ==========================
+   CERTIFICADOS
+========================== */
+
+.categoria {
+    margin-bottom: 80px;
+}
+
+.categoria h2 {
+    margin-bottom: 30px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2rem;
+}
+
+.cards-certificados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.certificado {
+    overflow: hidden;
+    border: 1px solid #ebe4f7;
+    border-radius: 25px;
+    background: var(--surface);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.certificado:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.certificado img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-bottom: 1px solid #ececec;
+}
+
+.certificado h3 {
+    padding: 25px 25px 10px;
+    font-size: 1.3rem;
+    color: #44355e;
+}
+
+.certificado p {
+    margin-bottom: 18px;
+    padding: 0 25px;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+.certificado strong {
+    color: #44355e;
+}
+
+.certificado a {
+    display: block;
+    margin: 25px;
+    padding: 15px;
+    border-radius: 50px;
+    background: var(--accent-strong);
+    color: var(--surface);
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.certificado a:hover {
+    background: var(--accent-strong-dark);
+}
+
+/* ==========================
+   PROJETOS
+========================== */
+
+.cards-projetos {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.projeto {
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background: var(--surface);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.projeto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.projeto h2 {
+    margin-bottom: 20px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2rem;
+    color: #44355e;
+}
+
+.projeto .descricao {
+    margin-bottom: 30px;
+    color: var(--text-soft);
+}
+
+.tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.tecnologias span {
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: var(--accent-soft);
+    color: var(--accent-strong-dark);
+    font-size: 0.9rem;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.btn-site,
+.btn-github {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 50px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-site {
+    background: var(--accent-strong);
+    color: var(--surface);
+}
+
+.btn-site:hover {
+    background: var(--accent-strong-dark);
+}
+
+.btn-github {
+    border: 2px solid var(--accent-strong);
+    color: var(--accent-strong);
+}
+
+.btn-github:hover {
+    background: var(--accent-strong);
+    color: var(--surface);
+}
+
+.github-section {
+    margin-top: 80px;
+    padding: 50px;
+    border: 1px solid var(--border-strong);
+    border-radius: 25px;
+    background: var(--surface-soft);
+    text-align: center;
+}
+
+.github-section h2 {
+    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #5d3f8c;
+}
+
+.github-section p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.github-section .btn-github {
+    background: #7b5dc7;
+    border-color: #7b5dc7;
+    color: var(--surface);
+    font-weight: 600;
+}
+
+.github-section .btn-github:hover {
+    background: #6346af;
+    transform: translateY(-3px);
+}
+
+/* ==========================
+   HABILIDADES
+========================== */
+
+.habilidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.categoria-habilidade {
+    padding: 30px;
+    border: 1px solid #e8def8;
+    border-radius: 20px;
+    background: var(--surface-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-habilidade:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(120, 90, 180, 0.12);
+}
+
+.categoria-habilidade h2 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: #6c4db3;
+}
+
+.categoria-habilidade span {
+    display: inline-block;
+    margin: 6px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: #ede6ff;
+    color: #5b3f96;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.categoria-habilidade span:hover {
+    background: #7b5dc7;
+    color: var(--surface);
+}
+
+/* ==========================
+   CONTATO
+========================== */
+
+.contatos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card-contato {
+    padding: 35px;
+    border: 1px solid #e8def8;
+    border-radius: 25px;
+    background: var(--surface-soft);
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card-contato:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(120, 90, 180, 0.12);
+}
+
+.icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icone img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card-contato:hover .icone img {
+    transform: scale(1.1);
+}
+
+.card-contato h2 {
+    margin-bottom: 12px;
+    color: #6b4bb3;
+}
+
+.card-contato p {
+    margin-bottom: 25px;
+    color: #666;
+    word-break: break-word;
+}
+
+.card-contato a {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 40px;
+    background: #7b5dc7;
+    color: var(--surface);
+    transition: background-color 0.3s ease;
+}
+
+.card-contato a:hover {
+    background: #6346af;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer {
+    margin-top: 80px;
+    padding: 15px 20px;
+    text-align: center;
+    background-color: #e1d7fa;
+}
+
+.footer-linha {
+    width: 100px;
+    height: 2px;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+    background: #8f63d8;
+    opacity: 0.5;
+}
+
+.footer p {
+    margin: 2px 0;
+    color: #8a8a8a;
+    font-size: 0.95rem;
+}
+
+.footer-texto {
+    color: #b09adf;
+}
+
+/* ==========================
+   ANIMA��ES
+========================== */
+
+@keyframes flutuar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes descer {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+@media (max-width: 950px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 2.5rem 0 3rem;
+        gap: 2.5rem;
+    }
+
+    .info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        text-align: center;
+    }
+
+    .foto img {
+        width: min(300px, 85vw);
+        height: auto;
+        max-height: 400px;
+    }
+
+    .pagina {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-logo {
+        padding-top: 24px;
+    }
+
+    .logo-topo img {
+        width: 110px;
+    }
+
+    .titulo {
+        margin-bottom: 32px;
+        font-size: 2.5rem;
+    }
+
+    .voltar {
+        margin-bottom: 32px;
+    }
+
+    .menu a {
+        padding: 16px 20px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .btn-site,
+    .btn-github {
+        width: 100%;
+        text-align: center;
+    }
+
+    .github-section {
+        padding: 32px 20px;
+    }
+}
